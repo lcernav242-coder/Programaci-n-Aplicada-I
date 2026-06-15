@@ -1,0 +1,73 @@
+﻿<Window x:Class="IMPUESTOS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IMPUESTOS"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="INFORMACIÓN GENERAL" FontWeight="Bold" FontSize="14" Foreground="#333" Grid.Row="0" Margin="0,0,0,10"/>
+
+        <Grid Grid.Row="1" Margin="0,0,0,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Personal:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="txtPersonal" Grid.Row="0" Grid.Column="1" Margin="5" VerticalContentAlignment="Center"/>
+
+            <Label Content="Código:" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="txtCodigo" Grid.Row="0" Grid.Column="3" Margin="5" VerticalContentAlignment="Center"/>
+
+            <Label Content="Aportaciones:" Grid.Row="1" Grid.Column="0" Margin="5,10,5,5"/>
+            <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="5,10,5,5">
+                <CheckBox x:Name="chkFonavi" Content="Fonavi (8%)" Margin="0,2"/>
+                <CheckBox x:Name="chkRenta" Content="Imp. Renta (5%)" Margin="0,2"/>
+                <CheckBox x:Name="chkAfp" Content="A.F.P. (12%)" Margin="0,2"/>
+            </StackPanel>
+
+            <Label Content="Ingreso:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+            <TextBox x:Name="txtIngreso" Grid.Row="2" Grid.Column="1" Margin="5" VerticalContentAlignment="Center"/>
+
+            <Button x:Name="btnCalcular" Content="Calcular" Grid.Row="2" Grid.Column="3" Margin="5" Padding="10,5" 
+                    Background="#0078D4" Foreground="White" FontWeight="Bold" Click="btnCalcular_Click"/>
+        </Grid>
+
+        <TextBlock Text="RESULTADOS" FontWeight="Bold" FontSize="14" Foreground="#333" Grid.Row="2" Margin="0,10,0,10"/>
+
+        <Grid Grid.Row="3" Background="White" Margin="0,0,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="lblFonavi" Text="Fonavi: S/. 0.00" FontSize="13" Grid.Row="0" Grid.Column="0" Margin="10"/>
+            <TextBlock x:Name="lblRenta" Text="Imp. Renta: S/. 0.00" FontSize="13" Grid.Row="1" Grid.Column="0" Margin="10"/>
+            <TextBlock x:Name="lblAfp" Text="A.F.P.: S/. 0.00" FontSize="13" Grid.Row="2" Grid.Column="0" Margin="10"/>
+
+            <TextBlock x:Name="lblTotal" Text="Total a Pagar: S/. 0.00" FontSize="16" FontWeight="Bold" Foreground="#0078D4"
+                       Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>
